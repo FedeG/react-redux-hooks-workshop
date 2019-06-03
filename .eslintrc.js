@@ -12,7 +12,9 @@ module.exports = {
     "object-curly-spacing": ["error", "never"],
     "quotes": ["error", "single"],
     "import/first": "off",
-    "no-prototype-builtins": "off"
+    "no-prototype-builtins": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for": "off"
   },
   overrides: [{
     files: [
