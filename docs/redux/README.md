@@ -15,8 +15,8 @@ Para comenzar vamos a descargar las cosas necesarias:
 ![](../assets/todolist.gif)
 
 ## Code sandbox:
-- Ejercicio para realizar: [ejercicio](https://codesandbox.io/s/react-redux-ejercicio-45oi8)
-- Ejercicio terminado: [resultado](https://codesandbox.io/s/react-redux-terminado-9g6uu)
+- Ejercicio para realizar: [ejercicio](https://codesandbox.io/s/reactredux-ejercicio-6x684)
+- Ejercicio terminado: [resultado](https://codesandbox.io/s/reactredux-terminado-me8u2)
 
 ## Etapas del curso
 - [Guía](redux/README.md)
