@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import TextInput from './TodoTextInput';
 
-const Header = ({ addTodo }) => (
+const Header = ({addTodo}) => (
   <header className="header">
     <h1>Tareas</h1>
     <TextInput

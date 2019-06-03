@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Footer = ({ todosCount }) => {
+const Footer = ({todosCount}) => {
   const itemWord = todosCount === 1 ? 'item' : 'items';
   return (
     <footer className="footer">
       <span className="todo-count">
-        {todosCount} {itemWord} left
+        {`${todosCount} ${itemWord} left`}
       </span>
     </footer>
   );
