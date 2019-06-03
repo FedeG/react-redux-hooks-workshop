@@ -1,5 +1,5 @@
 ## Vista general
-![concepts](https://codingthesmartway.com/wp-content/uploads/2017/05/01.png)
+![concepts](../assets/overview.png)
 
 ## State
 ```
