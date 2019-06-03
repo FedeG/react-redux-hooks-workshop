@@ -12,6 +12,6 @@ Para comenzar vamos a descargar las cosas necesarias:
     - react
 
 ## Etapas del curso
-- [Guía](https://fedeg.github.io/react-redux-workshop/#/redux/README.md)
-- [Herramientas](https://fedeg.github.io/react-redux-workshop/#/redux/tools.md)
-- [Conceptos](https://fedeg.github.io/react-redux-workshop/#/redux/overview.md)
+- [Guía](redux/README.md)
+- [Herramientas](redux/tools.md)
+- [Conceptos](redux/overview.md)
