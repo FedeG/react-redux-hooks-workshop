@@ -20,7 +20,8 @@
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3"
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,10 +33,12 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app"
+      "react-app",
+      "airbnb"
     ],
     "plugins": [
-      "react"
+      "react",
+      "react-hooks"
     ]
   },
   "browserslist": [

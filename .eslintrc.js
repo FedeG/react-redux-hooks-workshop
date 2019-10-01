@@ -1,6 +1,7 @@
 module.exports = {
   parser: "babel-eslint",
-  extends: "airbnb",
+  extends: ["react-app", "airbnb"],
+  plugins: ["react", "react-hooks"],
   globals: {
     document: true
   },
@@ -8,6 +9,8 @@ module.exports = {
     browser: true
   },
   rules: {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "arrow-parens": ["error", "as-needed"],
     "object-curly-spacing": ["error", "never"],
     "quotes": ["error", "single"],
