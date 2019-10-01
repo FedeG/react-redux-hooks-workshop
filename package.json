@@ -1,5 +1,6 @@
 {
   "name": "react-redux-hooks-workshop",
+  "version": "0.2.0",
   "license": "MIT",
   "description": "React + Redux + Hooks workshop",
   "keywords": [],
