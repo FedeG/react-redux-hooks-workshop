@@ -1,8 +1,7 @@
 {
-  "name": "react-redux-workshop",
-  "version": "0.1.0",
-  "description": "React + Redux workshop",
+  "name": "react-redux-hooks-workshop",
   "license": "MIT",
+  "description": "React + Redux + Hooks workshop",
   "keywords": [],
   "main": "src/index.jsx",
   "dependencies": {
