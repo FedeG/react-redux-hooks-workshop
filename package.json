@@ -2,6 +2,7 @@
   "name": "react-redux-workshop",
   "version": "0.1.0",
   "description": "React + Redux workshop",
+  "license": "MIT",
   "keywords": [],
   "main": "src/index.jsx",
   "dependencies": {
