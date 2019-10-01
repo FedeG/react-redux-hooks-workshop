@@ -1,22 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
-export default class TextInput extends PureComponent {
-  static propTypes = {
-    onSave: PropTypes.func.isRequired,
-    text: PropTypes.string,
-    placeholder: PropTypes.string,
-    editing: PropTypes.bool,
-    newTodo: PropTypes.bool,
-  };
-
-  static defaultProps = {
-    newTodo: false,
-    editing: false,
-    placeholder: '',
-    text: '',
-  }
-
+class TextInput extends PureComponent {
   state = {
     // eslint-disable-next-line react/destructuring-assignment
     text: this.props.text || '',
@@ -62,3 +47,20 @@ export default class TextInput extends PureComponent {
     );
   }
 }
+
+TextInput.propTypes = {
+  onSave: PropTypes.func.isRequired,
+  text: PropTypes.string,
+  placeholder: PropTypes.string,
+  editing: PropTypes.bool,
+  newTodo: PropTypes.bool,
+};
+
+TextInput.defaultProps = {
+  newTodo: false,
+  editing: false,
+  placeholder: '',
+  text: '',
+}
+
+export default TextInput;

@@ -4,19 +4,25 @@ import PropTypes from 'prop-types';
 import Footer from './Footer';
 import TodoList from './TodoList';
 
-const MainSection = ({todos, todosCount, actions}) => (
+const MainSection = ({
+  todos, onEdit, onComplete, onDelete,
+}) => (
   <section className="main">
     <span>
       <input className="toggle-all" type="checkbox" checked={false} readOnly />
       <label />
     </span>
-    <TodoList todos={todos} actions={actions} />
-    {todosCount > 0 && <Footer todosCount={todosCount} />}
+    <TodoList
+      todos={todos}
+      onEdit={onEdit}
+      onComplete={onComplete}
+      onDelete={onDelete}
+    />
+    {todos > 0 && <Footer quantity={todos.length} />}
   </section>
 );
 
 MainSection.propTypes = {
-  todosCount: PropTypes.number.isRequired,
   todos: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -24,9 +30,9 @@ MainSection.propTypes = {
       text: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  actions: PropTypes.objectOf(
-    PropTypes.func,
-  ).isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onComplete: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default MainSection;
