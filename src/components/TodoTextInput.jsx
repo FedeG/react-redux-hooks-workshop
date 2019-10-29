@@ -1,64 +1,60 @@
-import React, {PureComponent} from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-export default class TextInput extends PureComponent {
-  static propTypes = {
-    onSave: PropTypes.func.isRequired,
-    text: PropTypes.string,
-    placeholder: PropTypes.string,
-    editing: PropTypes.bool,
-    newTodo: PropTypes.bool,
-  };
+const TextInput = props => {
+  const {
+    editing, onSave, newTodo, placeholder, text: textFromProps,
+  } = props;
+  const [text, setText] = useState(textFromProps);
 
-  static defaultProps = {
-    newTodo: false,
-    editing: false,
-    placeholder: '',
-    text: '',
-  }
-
-  state = {
-    // eslint-disable-next-line react/destructuring-assignment
-    text: this.props.text || '',
-  };
-
-  handleSubmit = e => {
-    const {onSave, newTodo} = this.props;
-    const text = e.target.value.trim();
-    if (e.which === 13 && text.length > 0) {
-      onSave(text);
+  const handleSubmit = e => {
+    const value = e.target.value.trim();
+    if (e.which === 13 && value.length > 0) {
+      onSave(value);
       if (newTodo) {
-        this.setState({text: ''});
+        setText('');
       }
     }
   };
 
-  handleChange = e => {
-    this.setState({text: e.target.value});
+  const handleChange = e => {
+    setText(e.target.value);
   };
 
-  handleBlur = e => {
-    const {onSave, newTodo} = this.props;
-    const text = e.target.value;
-    if (!newTodo && text.length > 0) {
-      onSave(text);
+  const handleBlur = e => {
+    const {target: {value}} = e;
+    if (!newTodo && value.length > 0) {
+      onSave(value);
     }
   };
 
-  render() {
-    const {text} = this.state;
-    const {editing, newTodo, placeholder} = this.props;
-    const cssClasses = `${editing && 'edit'} ${newTodo && 'new-todo'}`;
-    return (
-      <input
-        className={cssClasses}
-        type="text"
-        placeholder={placeholder}
-        value={text}
-        onBlur={this.handleBlur}
-        onChange={this.handleChange}
-        onKeyDown={this.handleSubmit}
-      />
-    );
-  }
-}
+  return (
+    <input
+      className={classNames({edit: editing, 'new-todo': newTodo})}
+      type="text"
+      placeholder={placeholder}
+      value={text}
+      onBlur={handleBlur}
+      onChange={handleChange}
+      onKeyDown={handleSubmit}
+    />
+  );
+};
+
+TextInput.propTypes = {
+  onSave: PropTypes.func.isRequired,
+  text: PropTypes.string,
+  placeholder: PropTypes.string,
+  editing: PropTypes.bool,
+  newTodo: PropTypes.bool,
+};
+
+TextInput.defaultProps = {
+  newTodo: false,
+  editing: false,
+  placeholder: '',
+  text: '',
+};
+
+export default TextInput;

@@ -3,10 +3,18 @@ import PropTypes from 'prop-types';
 
 import TodoItem from './TodoItem';
 
-const TodoList = ({todos, actions}) => (
+const TodoList = ({
+  todos, onEdit, onComplete, onDelete,
+}) => (
   <ul className="todo-list">
     {todos.map(todo => (
-      <TodoItem key={todo.id} todo={todo} {...actions} />
+      <TodoItem
+        key={todo.id}
+        todo={todo}
+        onEdit={onEdit}
+        onComplete={onComplete}
+        onDelete={onDelete}
+      />
     ))}
   </ul>
 );
@@ -14,14 +22,14 @@ const TodoList = ({todos, actions}) => (
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       completed: PropTypes.bool.isRequired,
       text: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  actions: PropTypes.objectOf(
-    PropTypes.func,
-  ).isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onComplete: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default TodoList;
