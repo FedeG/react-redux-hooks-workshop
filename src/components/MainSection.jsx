@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -18,14 +20,14 @@ const MainSection = ({
       onComplete={onComplete}
       onDelete={onDelete}
     />
-    {todos > 0 && <Footer quantity={todos.length} />}
+    {todos.length > 0 && <Footer quantity={todos.length} />}
   </section>
 );
 
 MainSection.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       completed: PropTypes.bool.isRequired,
       text: PropTypes.string.isRequired,
     }).isRequired,
