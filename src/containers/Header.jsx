@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import {addTodoAsync} from '../actions';
 
 const mapStateToProps = () => ({});
-const mapDispatchToProps = {addTodo: addTodoAsync};
+const mapDispatchToProps = {onAdd: addTodoAsync};
 export default connect(
   mapStateToProps,
   mapDispatchToProps,

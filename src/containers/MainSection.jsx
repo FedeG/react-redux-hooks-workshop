@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as TodoActions from '../actions';
+import {deleteTodo, editTodo, completeTodo} from '../actions';
 import MainSection from '../components/MainSection';
 
 const mapStateToProps = state => ({
@@ -10,7 +10,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(TodoActions, dispatch),
+  onEdit: bindActionCreators(editTodo, dispatch),
+  onComplete: bindActionCreators(completeTodo, dispatch),
+  onDelete: bindActionCreators(deleteTodo, dispatch),
 });
 
 export default connect(

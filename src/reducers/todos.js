@@ -1,3 +1,5 @@
+import uuid from 'uuid/v1';
+
 import {
   ADD_TODO,
   DELETE_TODO,
@@ -9,7 +11,7 @@ const initialState = [
   {
     text: 'Use Redux',
     completed: false,
-    id: 0,
+    id: uuid(),
   },
 ];
 
@@ -19,7 +21,7 @@ export default function todos(state = initialState, action) {
       return [
         ...state,
         {
-          id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
+          id: uuid(),
           completed: false,
           text: action.text,
         },
