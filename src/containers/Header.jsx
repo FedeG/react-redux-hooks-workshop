@@ -1,11 +1,16 @@
-import {connect} from 'react-redux';
+import React, {useCallback} from 'react';
+import {useDispatch} from 'react-redux';
 
 import Header from '../components/Header';
-import {addTodoAsync} from '../actions';
+import {addTodo} from '../actions';
 
-const mapStateToProps = () => ({});
-const mapDispatchToProps = {onAdd: addTodoAsync};
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Header);
+const HeaderContainer = () => {
+  const dispatch = useDispatch();
+  const onAdd = useCallback(
+    text => dispatch(addTodo(text)),
+    [dispatch],
+  );
+  return <Header onAdd={onAdd} />;
+};
+
+export default HeaderContainer;

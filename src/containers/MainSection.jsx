@@ -1,21 +1,34 @@
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, {useCallback} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 import {deleteTodo, editTodo, completeTodo} from '../actions';
 import MainSection from '../components/MainSection';
 
-const mapStateToProps = state => ({
-  todosCount: state.todos.length,
-  todos: state.todos,
-});
+const MainSectionContainer = () => {
+  const dispatch = useDispatch();
+  const onEdit = useCallback(
+    (id, text) => dispatch(editTodo(id, text)),
+    [dispatch],
+  );
+  const onComplete = useCallback(
+    id => dispatch(completeTodo(id)),
+    [dispatch],
+  );
+  const onDelete = useCallback(
+    id => dispatch(deleteTodo(id)),
+    [dispatch],
+  );
+  const todosCount = useSelector(state => state.todos.length);
+  const todos = useSelector(state => state.todos);
+  return (
+    <MainSection
+      todosCount={todosCount}
+      todos={todos}
+      onEdit={onEdit}
+      onComplete={onComplete}
+      onDelete={onDelete}
+    />
+  );
+};
 
-const mapDispatchToProps = dispatch => ({
-  onEdit: bindActionCreators(editTodo, dispatch),
-  onComplete: bindActionCreators(completeTodo, dispatch),
-  onDelete: bindActionCreators(deleteTodo, dispatch),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(MainSection);
+export default MainSectionContainer;
